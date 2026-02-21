@@ -1,0 +1,15 @@
+; vim:et
+function-declaration = ["pub"] identifier function-signature
+function-signature = *c-wsp "fn"
+                     [*c-wsp "(" function-signature-arguments ")"]
+                     *c-wsp type
+function-signature-arguments = identifier-type-pair
+                               *(*c-wsp "," identifier-type-pair)
+                               *c-wsp
+
+function-definition = function-declaration *c-wsp "=" *WSP function-body
+function-body = (expression c-nl)
+              / ([expression c-nl] 1*function-body-element)
+function-body-element = 1*HTAB *SP statement c-nl
+                      ; numbers of HTAB must be same in a function,
+                      ; like [python](https://python.org)

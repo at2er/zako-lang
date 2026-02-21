@@ -1,0 +1,16 @@
+; vim:et
+expression = unary
+           / factor
+           / primary
+equality   = comparison [("!=" / "==") comparison]
+comparison = term [(">" / ">=" / "<" / "<=") term]
+term       = factor *(("+" / "-") factor)
+factor     = unary *(("/" / "*") unary)
+unary      = ("!" / "-") primary
+primary    = number-literal / string-literal
+           / ("(" expression ")")
+
+expression-statement = identifier
+                       ("=" / "+=" / "-=" / "/=" / "*=")
+                       expression
+                       statement-end

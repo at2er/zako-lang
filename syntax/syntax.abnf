@@ -1,0 +1,17 @@
+; vim:et
+c-wsp = WSP / (c-nl WSP)
+c-nl  = comment / CRLF
+      ; comment or newline
+
+file = *(toplevel-statement)
+
+comment = ";" *(WSP / VCHAR) CRLF
+identifier = ALPHA *(ALPHA / DIGIT / "_")
+identifier-type-pair = *c-wsp identifier 1*c-wsp type
+type = identifier
+
+toplevel-statement = declaration / definition
+
+declaration = function-declaration
+
+definition  = function-definition
