@@ -1,14 +1,15 @@
 ; vim:et
-expression = unary
-           / factor
-           / primary
+expression = if-expression / equality
 equality   = comparison [("!=" / "==") comparison]
 comparison = term [(">" / ">=" / "<" / "<=") term]
 term       = factor *(("+" / "-") factor)
 factor     = unary *(("/" / "*") unary)
 unary      = ("!" / "-") primary
 primary    = number-literal / string-literal
-           / ("(" expression ")")
+           / expression-with-paren-no-wsp
+expression-with-paren = *c-wsp expression-with-paren-no-wsp *c-wsp
+expression-with-paren-no-wsp = "(" *c-wsp expression *c-wsp ")"
+expression-with-wsp = 1*c-wsp expression 1*c-wsp
 
 expression-statement = identifier
                        ("=" / "+=" / "-=" / "/=" / "*=")

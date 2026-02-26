@@ -1,0 +1,3 @@
+; vim:et
+identifier = ALPHA *(ALPHA / DIGIT / "_")
+identifier-signature = identifier 1*c-wsp type

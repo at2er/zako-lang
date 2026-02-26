@@ -6,9 +6,6 @@ c-nl  = comment / CRLF
 file = *(toplevel-statement)
 
 comment = ";" *(WSP / VCHAR) CRLF
-identifier = ALPHA *(ALPHA / DIGIT / "_")
-identifier-type-pair = *c-wsp identifier 1*c-wsp type
-type = identifier
 
 toplevel-statement = declaration / definition
 
