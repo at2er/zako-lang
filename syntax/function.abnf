@@ -1,4 +1,6 @@
 ; vim:et
+function-call = identifier 1*c-wsp *(expression 1*c-wsp)
+
 function-declaration = ["pub"] identifier-signature
 function-signature = "fn"
                      ( (*c-wsp function-signature-arguments *c-wsp type)

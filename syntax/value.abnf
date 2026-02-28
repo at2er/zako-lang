@@ -1,0 +1,8 @@
+; vim:et
+value = number-literal / string-literal
+      / element-init
+      / function-call
+      / identifier
+      / expression-with-paren-no-wsp
+
+element-init = "{" *c-wsp [value *(*c-wsp "," *c-wsp value)] *c-wsp "}"

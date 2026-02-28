@@ -1,0 +1,5 @@
+; vim:et
+; The variables must be binded to a identifier!
+let = "let" 1*c-wsp identifier-signature 1*c-wsp
+      "=" *c-wsp expression
+      statement-end

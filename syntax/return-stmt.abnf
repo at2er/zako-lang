@@ -1,0 +1,2 @@
+; vim:et
+return-stmt = "return" 1*c-wsp expression statement-end

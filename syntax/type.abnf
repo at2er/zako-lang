@@ -2,3 +2,8 @@
 type = "i8" / "i16" / "i32" / "i64"
      / "u8" / "u16" / "u32" / "u64"
      / function-signature
+     / array-type
+
+array-type = "[" array-type-signature ["," array-type-size] "]"
+array-type-signature = *c-wsp type *c-wsp
+array-type-size = *c-wsp *DIGIT *c-wsp

@@ -1,17 +1,18 @@
 ; vim:et
-expression = if-expression / equality
-equality   = comparison [("!=" / "==") comparison]
-comparison = term [(">" / ">=" / "<" / "<=") term]
+expression = if-expression / term
 term       = factor *(("+" / "-") factor)
 factor     = unary *(("/" / "*") unary)
 unary      = ("!" / "-") primary
-primary    = number-literal / string-literal
-           / expression-with-paren-no-wsp
+primary    = value
+
+equality-expression = comparison [("!=" / "==") comparison]
+comparison = term [(">" / ">=" / "<" / "<=") term]
+
 expression-with-paren = *c-wsp expression-with-paren-no-wsp *c-wsp
 expression-with-paren-no-wsp = "(" *c-wsp expression *c-wsp ")"
 expression-with-wsp = 1*c-wsp expression 1*c-wsp
 
-expression-statement = identifier
+expression-stmt = identifier
                        ("=" / "+=" / "-=" / "/=" / "*=")
                        expression
                        statement-end

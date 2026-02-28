@@ -1,5 +1,5 @@
 ; vim:et
-statement = expression-statement
-          / return-statement
+statement = expression-stmt
+          / return-stmt
 
 statement-end = *WSP c-nl
