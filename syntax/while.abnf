@@ -1,0 +1,6 @@
+; vim:et
+while-stmt = "while" expr-with-paren-or-wsp
+             "then" c-nl whlie-stmt-body
+             statement-end
+while-stmt-body = 1*while-stmt-element
+while-stmt-element = 1*HTAB *SP statement

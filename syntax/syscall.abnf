@@ -1,0 +1,5 @@
+; vim:et
+syscall-declaration = identifier-signature
+syscall-signature = "syscall" 1*c-wsp number-literal ; syscall number
+                  ( (*c-wsp function-signature-arguments *c-wsp type)
+                  / (1*c-wsp type) )

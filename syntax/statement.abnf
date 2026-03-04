@@ -1,5 +1,7 @@
 ; vim:et
 statement = expression-stmt
+          / let-stmt
           / return-stmt
+          / while-stmt
 
 statement-end = *WSP c-nl
