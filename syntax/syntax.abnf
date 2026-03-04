@@ -5,7 +5,7 @@ c-nl  = comment / CRLF
 
 file = *(toplevel-statement)
 
-comment = ";" *(WSP / VCHAR) CRLF
+comment = "--" *(WSP / VCHAR) CRLF
 
 toplevel-statement = declaration / definition
 

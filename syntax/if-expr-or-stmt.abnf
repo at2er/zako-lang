@@ -2,12 +2,14 @@
 if-statement = "if" expr-with-paren-or-wsp
                "then" c-nl if-stmt-body
 
-if-stmt-body = c-nl 1*if-stmt-body-element
+if-body-indent = 1*HTAB *SP
+
+if-stmt-body = 1*if-stmt-body-element
 if-stmt-body-element = if-body-indent statement
 
 if-expression = "if" expr-with-paren-or-wsp
-                "then" if-expr-body
-if-expr-body = if-expr-body-element
+                "then" c-nl if-expr-body
+if-expr-body = 1*if-expr-body-element
 if-expr-body-element = if-body-indent ((expr-with-paren-or-wsp c-nl) / statement)
 
 expr-with-paren-or-wsp = expression-with-paren / expression-with-wsp
