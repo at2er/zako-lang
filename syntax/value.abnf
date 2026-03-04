@@ -1,8 +1,12 @@
 ; vim:et
 value = number-literal / string-literal
       / element-init
+      / array-element
       / function-call
       / identifier
       / expression-with-paren-no-wsp
 
-element-init = "{" *c-wsp [value *(*c-wsp "," *c-wsp value)] *c-wsp "}"
+number-literal = ["-"] 1*DIGIT
+string-literal = DQUOTE *(%x20-21 / %x23-7E) DQUOTE
+element-init = "{" *c-wsp [value *(*c-wsp ";" *c-wsp value)] *c-wsp "}"
+array-element = identifier "[" *c-wsp number-literal *c-wsp "]"
