@@ -1,5 +1,5 @@
 ; vim:et
-function-call = identifier 1*c-wsp *(expression 1*c-wsp)
+function-call = identifier 1*c-wsp *("," *c-wsp expression)
 
 function-declaration = ["pub"] identifier-signature
 function-signature = "fn"

@@ -1,5 +1,6 @@
 ; vim:et
-expression = if-expression / term
+expression = if-expression / type-cast
+type-cast  = term *("as" term)
 term       = factor *(("+" / "-") factor)
 factor     = unary *(("/" / "*") unary)
 unary      = ("!" / "-") primary
@@ -12,7 +13,9 @@ expression-with-paren = *c-wsp expression-with-paren-no-wsp *c-wsp
 expression-with-paren-no-wsp = "(" *c-wsp expression *c-wsp ")"
 expression-with-wsp = 1*c-wsp expression 1*c-wsp
 
-expression-stmt = identifier
-                       ("=" / "+=" / "-=" / "/=" / "*=")
-                       expression
-                       statement-end
+expression-stmt = value
+                [("=" / "+=" / "-=" / "/=" / "*=")
+                 expression statement-end]
+                ; [value] must be a mutable identifier
+                ; when [value] is a [function-call],
+                ; don't need to parse optional element
